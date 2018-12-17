@@ -1,0 +1,48 @@
+input {
+	display: inline;
+}
+.fight {
+	background-color: #d9edf7;
+}
+.fight>button {
+	background-color: #d9534f;
+    border-color: #d43f3a;
+    color: white;
+    font-size: -webkit-xxx-large;
+}
+.content {
+	width: 250px;
+	height: 250px;
+}
+.content div {
+	width: 50px;
+	height: 50px;
+	outline: 1px solid;
+	float: left;
+}
+.fire, .ice {
+	float: left;
+	width: 50%;
+}
+b#red {
+	color: #CB1C1C;
+}
+b#blue {
+	color: #6EFFF6;
+}
+.fMoving {
+	background-color: #FAB6B6;
+}
+.iMoving {
+	background-color: #D3F8F4;
+}
+.moving {
+	background-color: #B4B7B2 !important;
+}
+
+.field {
+	display: inline-block;
+}
+.field input {
+	display: block;
+}
