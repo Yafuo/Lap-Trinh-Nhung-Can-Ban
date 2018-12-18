@@ -47,7 +47,8 @@ function fire(id) {
         }
         if(iSum== 0) {
             flag= 1;
-            document.getElementById("winner").innerHTML= "The winner is team ICE";
+			// document.getElementById("winner").innerHTML= "The winner is team ICE";
+			sendInfoWin(0);
         }
     }
     if(id> 25) {
@@ -64,7 +65,8 @@ function fire(id) {
         }
         if(fSum== 0) {
             flag= 2;
-            document.getElementById("winner").innerHTML= "The winner is team FIRE";
+			// document.getElementById("winner").innerHTML= "The winner is team FIRE";
+			sendInfoWin(1);
         }
     }
 }
@@ -94,47 +96,48 @@ document.onkeydown= function(event) {
 		}
 	}
 	event= event || window.event;
-	switch (event.keyCode) {
-		case 39:
-			if(turn==true&& fCur<25) {					
-				fCur= fCur+ 1;
-			}
-			if(turn==false&& iCur< 50) {
-				iCur= iCur+ 1;
-			}
-			break;
-		case 37:
-			if(turn==true&& fCur> 1) {
-				fCur= fCur- 1;
-			}
-			if(turn==false&& iCur> 26) {
-				iCur= iCur- 1;
-			}
-			break;
-		case 38:
-			if(turn==true&& fCur> 5) {
-				fCur= fCur- 5;
-			}
-			if(turn==false&& iCur> 30) {
-				iCur=iCur- 5;
-			}
-			break;
-		case 40:
-			if(turn==true&& fCur< 21) {
-				fCur= fCur+ 5;
-			}
-			if(turn==false&& iCur< 46) {
-				iCur=iCur+ 5;
-			}
-			break;
-		case 13:
-			if(turn==true) {
-				fire(fCur);
-			}
-			else {
-				fire(iCur);
-			}
-			break;
+	if(event.keyCode === 3 || event.keyCode === 39) {
+		if(turn==true&& fCur<25) {					
+			fCur= fCur+ 1;
+		}
+		if(turn==false&& iCur< 50) {
+			iCur= iCur+ 1;
+		}
+	}
+	else if(event.keyCode === 1 || event.keyCode === 37) {
+		if(turn==true&& fCur> 1) {
+			fCur= fCur- 1;
+		}
+		if(turn==false&& iCur> 26) {
+			iCur= iCur- 1;
+		}
+	}
+	else if(event.keyCode === 2 || event.keyCode === 38) {
+		if(turn==true&& fCur> 5) {
+			fCur= fCur- 5;
+		}
+		if(turn==false&& iCur> 30) {
+			iCur=iCur- 5;
+		}
+	}
+	else if(event.keyCode === 4 || event.keyCode === 40) {
+		if(turn==true&& fCur< 21) {
+			fCur= fCur+ 5;
+		}
+		if(turn==false&& iCur< 46) {
+			iCur=iCur+ 5;
+		}
+	}
+	else if(event.keyCode === 5 || event.keyCode === 13) {
+		if(turn==true) {
+			fire(fCur);
+		}
+		else {
+			fire(iCur);
+		}
+	}
+	if(event.keyCode === 6 || event.keyCode === 7 || event.keyCode === 32) {
+		alert("Board is connected");
 	}
 	if(fCur>= 1 ||iCur>= 26) {
 		arrowPressed();
