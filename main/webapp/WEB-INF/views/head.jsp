@@ -14,4 +14,5 @@
 	
 	<!-- Custom -->
 	<link href="css/style.css" rel="stylesheet">
+	<script src="js/handler-login.js"></script>
 	
