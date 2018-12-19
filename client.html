@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title of the document</title>
+</head>
+
+<body>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+<script>
+    var socket = io.connect('http://127.0.0.1:3000');// clent khởi tạo kết nối socket đến server
+    socket.on('news', function (data) { // lắng nghe event 'news' được server gửi đến
+            console.log(data); // log data để kiểm tra
+        });
+    $(document).ready(function () {
+        $('#send_private').click(function(){
+            socket.emit('private',  $('#data').val()); // gửi event 'private'
+             $('#data').val('');
+        });
+        $('#send_broadcast').click(function(){
+            socket.emit('broadcast',  $('#data').val()); // gửi event 'broadcast'
+            $('#data').val('');
+        });
+        $('#send_all_client').click(function(){
+            socket.emit('all client',  $('#data').val()); // gửi event 'all client'
+            $('#data').val('');
+        })
+    });
+</script>
+<h1>Test socket.io</h1>
+<input type="text" id="data"><br>
+<button id="send_private">Send Private message</button><br>
+<button id="send_broadcast">Send Broadcast</button><br>
+<button id="send_all_client">Send All Client</button>
+</html>

@@ -1,0 +1,196 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> Homepage</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="main-script.js"></script>
+</head>
+
+<body>
+<div id="PheTa" style="margin: 0 auto; display: inline-block;text-align: center">
+<h1>BẢN ĐỒ TA</h1>
+
+<p>Xin chao: <br /></p>
+<p id="list-device">... <br /></p>
+	<p>Toa do: </p><p id="display"></p>
+	Ban vua chon: <p id="choose"></p>
+	<table border="1" style="border-collapse: collapse;">
+            	<tr>
+        		<td id="B07" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B17" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B27" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B37" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B47" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B57" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B67" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B77" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="B06" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B16" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B26" style="width: 40px; height: 40px;">&nbsp;</td>  
+				<td id="B36" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B46" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B56" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B66" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B76" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="B05" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B15" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B25" style="width: 40px; height: 40px;">&nbsp;</td>
+            	<td id="B35" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B45" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B55" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B65" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B75" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="B04" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B14" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B24" style="width: 40px; height: 40px;">&nbsp;</td>
+				<td id="B34" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B44" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B54" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B64" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B74" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="B03" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B13" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B23" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B33" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B43" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B53" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B63" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B73" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<trB>
+        		<td id="B02" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B12" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B22" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B32" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B42" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B52" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B62" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B72" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="B01" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B11" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B21" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B31" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B41" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B51" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B61" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B71" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="B00" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B10" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B20" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B30" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B40" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B50" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B60" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="B70" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+        </table>
+		
+    </div>
+<div id="PheDich" style="margin: 0 auto; display: inline-block;text-align: center">
+<h1>BẢN ĐỒ ĐỊCH</h1>
+
+<p>Xin chao: <br /></p>
+<p id="list-device">... <br /></p>
+	<p>Toa do: </p><p id="display"></p>
+	Ban vua chon: <p id="choose"></p>
+	<table border="1" style="border-collapse: collapse;">
+            	<tr>
+        		<td id="A07" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A17" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A27" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A37" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A47" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A57" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A67" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A77" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="A06" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A16" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A26" style="width: 40px; height: 40px;">&nbsp;</td>  
+				<td id="A36" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A46" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A56" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A66" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A76" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="A05" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A15" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A25" style="width: 40px; height: 40px;">&nbsp;</td>
+            	<td id="A35" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A45" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A55" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A65" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A75" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="A04" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A14" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A24" style="width: 40px; height: 40px;">&nbsp;</td>
+				<td id="A34" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A44" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A54" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A64" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A74" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="A03" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A13" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A23" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A33" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A43" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A53" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A63" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A73" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="A02" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A12" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A22" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A32" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A42" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A52" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A62" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A72" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="A01" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A11" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A21" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A31" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A41" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A51" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A61" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A71" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+            	<tr>
+        		<td id="A00" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A10" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A20" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A30" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A40" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A50" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A60" style="width: 40px; height: 40px;">&nbsp;</td>
+        		<td id="A70" style="width: 40px; height: 40px;">&nbsp;</td>
+        </tr>
+        </table>
+		
+    </div>
+	</body>
+</html>
