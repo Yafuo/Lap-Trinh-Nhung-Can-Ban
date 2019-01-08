@@ -1,4 +1,5 @@
 var stompClient = null;
+var stompHandle = null;
 
 	function setConnected(connected) {
 	    $("#connect").prop("disabled", connected);
@@ -20,9 +21,17 @@ var stompClient = null;
 			setConnected(true);
 			console.log('Connected: ' + frame);
 			if(roomNo== 'room1') {
+				stompHandle.subscribe('/topic/greetings', function (greeting) {
+					gameHandle(JSON.parse(greeting.body).pos);
+				});
 				stompClient.subscribe('/topic/greetings1', function (greeting) {
 					showInfo(JSON.parse(greeting.body).location, JSON.parse(greeting.body).color);
-					console.log(JSON.parse(greeting.body).turn);
+					if(JSON.parse(greeting.body).winner=== 1) {
+						showWinner('FIRE');
+					}
+					if(JSON.parse(greeting.body).winner=== 0) {
+						showWinner('ICE');
+					}
 					if(JSON.parse(greeting.body).turn==true) {
 						turn= false;
 					}
@@ -33,8 +42,13 @@ var stompClient = null;
 			}
 			if(roomNo== 'room2') {
 				stompClient.subscribe('/topic/greetings2', function (greeting) {
-					showInfo(JSON.parse(greeting.body).location, JSON.parse(greeting.body).color);
-					console.log(JSON.parse(greeting.body).turn);
+					showInfo(JSON.parse(greeting.body).location, JSON.parse(greeting.body).color);;
+					if(JSON.parse(greeting.body).winner=== 1) {
+						showWinner('FIRE');
+					}
+					if(JSON.parse(greeting.body).winner=== 0) {
+						showWinner('ICE');
+					}
 					if(JSON.parse(greeting.body).turn==true) {
 						turn= false;
 					}
@@ -46,7 +60,12 @@ var stompClient = null;
 			if(roomNo== 'room3') {
 				stompClient.subscribe('/topic/greetings3', function (greeting) {
 					showInfo(JSON.parse(greeting.body).location, JSON.parse(greeting.body).color);
-					console.log(JSON.parse(greeting.body).turn);
+					if(JSON.parse(greeting.body).winner=== 1) {
+						showWinner('FIRE');
+					}
+					if(JSON.parse(greeting.body).winner=== 0) {
+						showWinner('ICE');
+					}
 					if(JSON.parse(greeting.body).turn==true) {
 						turn= false;
 					}
@@ -68,11 +87,19 @@ var stompClient = null;
 	
 	function sendInfo(location, color) {
 		if(roomNo=== 'room1')
-			stompClient.send("/app/room1", {}, JSON.stringify({'location': location, 'color':color, 'turn':turn}));
+			stompClient.send("/app/room1", {}, JSON.stringify({'location': location, 'color':color, 'turn':turn, 'winner': 2}));
 		if(roomNo=== 'room2')
-			stompClient.send("/app/room2", {}, JSON.stringify({'location': location, 'color':color, 'turn':turn}));
+			stompClient.send("/app/room2", {}, JSON.stringify({'location': location, 'color':color, 'turn':turn, 'winner': 2}));
 		if(roomNo=== 'room3')
-			stompClient.send("/app/room3", {}, JSON.stringify({'location': location, 'color':color, 'turn':turn}));
+			stompClient.send("/app/room3", {}, JSON.stringify({'location': location, 'color':color, 'turn':turn, 'winner': 2}));
+	}
+	function sendInfoWin(winner) {
+		if(roomNo=== 'room1')
+			stompClient.send("/app/room1", {}, JSON.stringify({'location': -1, 'color': '', 'turn': null, 'winner': winner}));
+		if(roomNo=== 'room2')
+			stompClient.send("/app/room2", {}, JSON.stringify({'location': -1, 'color': '', 'turn': null, 'winner': winner}));
+		if(roomNo=== 'room3')
+			stompClient.send("/app/room3", {}, JSON.stringify({'location': -1, 'color': '', 'turn': null, 'winner': winner}));
 	}
 	function sendRecentCon(cnt) {
 		stompClient.send("/app/hello", {}, JSON.stringify({'num': cnt}));
@@ -80,6 +107,10 @@ var stompClient = null;
 	
 	function showInfo(location, color) {
 		$("#"+ location).css('background-color',color);
+	}
+
+	function showWinner(winner) {
+		document.getElementById("winner").innerHTML= 'The winner is '+ winner;
 	}
 
 	$(function () {
