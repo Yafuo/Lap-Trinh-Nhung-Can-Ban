@@ -41,6 +41,9 @@ var stompHandle = null;
 				});
 			}
 			if(roomNo== 'room2') {
+				stompHandle.subscribe('/topic/greetings', function (greeting) {
+					gameHandle(JSON.parse(greeting.body).pos);
+				});
 				stompClient.subscribe('/topic/greetings2', function (greeting) {
 					showInfo(JSON.parse(greeting.body).location, JSON.parse(greeting.body).color);;
 					if(JSON.parse(greeting.body).winner=== 1) {
@@ -58,6 +61,9 @@ var stompHandle = null;
 				});
 			}
 			if(roomNo== 'room3') {
+				stompHandle.subscribe('/topic/greetings', function (greeting) {
+					gameHandle(JSON.parse(greeting.body).pos);
+				});
 				stompClient.subscribe('/topic/greetings3', function (greeting) {
 					showInfo(JSON.parse(greeting.body).location, JSON.parse(greeting.body).color);
 					if(JSON.parse(greeting.body).winner=== 1) {
